@@ -1,0 +1,11 @@
+<h1>View Blogs</h1>
+<h2>Blogs</h2>
+<% if(locals.viewData){%>
+    <%viewData.forEach(showData => {%>
+        Author Name : <%= showData.authoreName%>
+        Article Title : <%= showData.articleTitle%>
+        Date : <%= showData.date%>
+        Category : <%= showData.categories%>
+        Content : <%= showData.blogContent%>
+    <% }); %>
+    <%}%>

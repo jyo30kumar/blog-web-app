@@ -19,7 +19,7 @@ app.get("/newBlog", (req, res) => {
     res.render("createBlog.ejs");
 });
 app.get("/viewBlog", (req, res) => {
-    res.render("viewBlog.ejs", {viewData :                                                                                                                                                                                                                                                             posts});
+    res.render("viewBlog.ejs", {viewData : posts});
 });
 
 app.post("/createBlog", (req, res) => {
@@ -27,8 +27,6 @@ app.post("/createBlog", (req, res) => {
     const id = posts.length ? posts[posts.length - 1].id + 1 : 1;
     blogData.id = id;
     posts.push(req.body);
-    console.log(req.body);
-    console.log(posts);
     res.redirect("/newBlog");
 });
 

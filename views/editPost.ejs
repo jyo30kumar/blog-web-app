@@ -1,12 +1,12 @@
-<%if(locals.editData){%> 
+<%if(editData){%> 
 <form action="/updatePost/<%=editData.id%>" method="post">
         
-    <input type="hidden" value="" name="postId" id="postId">
+    <input type="hidden" value="<%= editData.id %>" name="id" id="id">
+    <input type="hidden" value="<%= editData.date%>" name="date" id="date">
     <label for="authorName">Author Name</label>
     <input type="text" name="authorName" id="authorName" value="<%= editData.authorName%>">
     <label for="articleTitle">Article Title</label>
     <input type="text" name="articleTitle" id="articleTitle" value="<%= editData.articleTitle%>">
-    <input type="hidden" name="date" id="date" value="<%= editData.date%>">
     <label for="categories">Category</label>
     <select name="categories" id="categories">  
         <option value="creative"> Creative </option>
@@ -19,8 +19,8 @@
     </textarea>
     <input type="submit" value="Update" name="update">
     <input type="reset" value="Reset" id="reset" name="reset">
-    <%}%>
 </form>
+<% } %>
 
 <script type="text/javascript">
     let selectElement = document.getElementById("categories");

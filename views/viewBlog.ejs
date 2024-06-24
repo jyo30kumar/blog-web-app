@@ -2,10 +2,24 @@
 <h2>Blogs</h2>
 <% if(locals.viewData){%>
     <%viewData.forEach(showData => {%>
-        Author Name : <%= showData.authoreName%>
+        Author Name : <%= showData.authorName%>
         Article Title : <%= showData.articleTitle%>
         Date : <%= showData.date%>
         Category : <%= showData.categories%>
         Content : <%= showData.blogContent%>
+        <form id="editData" method="POST">
+            <input type="text" value="<%= showData.id%>" id="postId">
+            <input type="submit" value="edit" name="edit" formaction="/editPost/<%=showData.id%>">
+            <input type="submit" value="delete" name="delete" formaction="/deletePost/<%=showData.id%>">
+        </form>
     <% }); %>
     <%}%>
+
+    <!-- <script>
+        document.getElementById("editData").addEventListener('submit', function(event){
+            var id = document.getElementById("postId").value;
+            this.action = '/editPost/' + id;
+            this.submit();
+        });
+    </script> -->
+

@@ -1,0 +1,29 @@
+<%if(locals.editData){%> 
+<form action="/updatePost/<%=editData.id%>" method="post">
+        
+    <input type="hidden" value="" name="postId" id="postId">
+    <label for="authorName">Author Name</label>
+    <input type="text" name="authorName" id="authorName" value="<%= editData.authorName%>">
+    <label for="articleTitle">Article Title</label>
+    <input type="text" name="articleTitle" id="articleTitle" value="<%= editData.articleTitle%>">
+    <input type="hidden" name="date" id="date" value="<%= editData.date%>">
+    <label for="categories">Category</label>
+    <select name="categories" id="categories">  
+        <option value="creative"> Creative </option>
+        <option value="fashion"> Fashion </option>
+        <option value="lifestyle"> Lifestyle </option>
+        <option value="travel"> Travel </option>
+        <option value="nature"> Nature </option>
+    </select>
+    <textarea name="blogContent" id="blogContent" rows="10" cols="30">
+    </textarea>
+    <input type="submit" value="Update" name="update">
+    <input type="reset" value="Reset" id="reset" name="reset">
+    <%}%>
+</form>
+
+<script type="text/javascript">
+    let selectElement = document.getElementById("categories");
+    selectElement.value= "<%= editData.categories%>";
+    document.getElementById("blogContent").value = "<%= editData.blogContent%>";
+</script>
